@@ -45,6 +45,7 @@
 							<p>IT Support Technician<br />
 							Cybersecurity Professional<br />
 							Washington, VA</p>
+							<p>Total Visitors: <span id="visitor_counter">Loading...</span></p>
 							<ul class="actions special">
 								<li><a href="#contact" class="button primary">Contact Me</a></li>
 							</ul>
@@ -121,7 +122,6 @@
 									<li>Practiced network security concepts, configuring firewalls and VPNs in lab environments</li>
 									<li>Provided tech support to peers, assisting with system installations and troubleshooting</li>
 								</ul>
-								
 								<h3>Research Assistant</h3>
 								<p>Nigde Omer Halisdemir University | Nigde, Turkey | Oct 2020 – Aug 2022</p>
 								<ul>
@@ -166,6 +166,16 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				fetch('https://y3enrhyhy9.execute-api.us-east-1.amazonaws.com/Deploy')
+					.then(response => response.json())
+					.then((data) => {
+						document.getElementById('visitor_counter').innerText = data.Count;
+					})
+					.catch((error) => {
+						console.error('Error fetching visitor count:', error);
+					});
+			</script>
 
 	</body>
 </html>
